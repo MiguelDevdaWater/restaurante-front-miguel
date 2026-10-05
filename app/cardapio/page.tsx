@@ -19,8 +19,13 @@ export default function CardapioPage() {
 
   async function mostrarProdutos() {
     try {
-      const response = await fetch("http://localhost:3001/produtos")
-
+      const response = await fetch(
+        `${process.env.API_URL}/produtos/${id}`,
+        {
+          method: "DELETE"
+        }
+      )
+  
       if (!response.ok) {
         throw new Error("Erro ao buscar produtos")
       }
